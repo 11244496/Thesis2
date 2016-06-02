@@ -1,0 +1,6 @@
+{
+  "name": "File Exposer",
+  "manifest_version": 2,
+  "version": "1.0",
+  "web_accessible_resources": ["*.jpg","*.JPG","*.png","*.PNG","*.MP4","*.mp4","*.AVI","*.avi","*.3gp","*.3GP","*.FLV","*.flv","*.WMV","*.wmv","*.mkv","*.MKV","*.JPEG","*.jpeg","*.BMP","*.bmp","*.PDF","*.pdf","*.DOCX","*.docx","*.DOC","*.doc","*.PPTX","*.pptx","*.TXT","*.txt","*.XLSX","*.xlsx"]
+}

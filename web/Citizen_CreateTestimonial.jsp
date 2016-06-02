@@ -1,0 +1,233 @@
+<%-- 
+    Document   : Citizen_CreateTestimonial
+    Created on : 02 4, 16, 9:19:44 AM
+    Author     : RoAnn 
+--%>
+
+<%@page import="Entity.Citizen"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%Citizen c = (Citizen) session.getAttribute("user");%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Create Testimonial</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-reset.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    </head>
+
+    <body>
+
+        <section id="container" class="">
+            <header class="header green-bg">
+
+                <div class="sidebar-toggle-box">
+                    <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
+                </div>
+
+                <a href="index.html" class="logo" >COGITO<span></span></a>
+
+                <div class="nav notify-row" id="top_menu">
+                    <ul class="nav top-menu">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="fa fa-tasks"></i>
+                                <span class="badge bg-success"><!--NUMBER OF TASKS--></span>
+                            </a>
+                            <ul class="dropdown-menu extended tasks-bar">
+                                <div class="notify-arrow notify-arrow-green"></div>
+                                <li>
+                                    <p class="green">You have __ pending tasks</p>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="header_notification_bar" class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                                <i class="fa fa-bell-o"></i>
+                                <span class="badge bg-warning"><!--NUMBER OF NOTIFICATIONS--></span>
+                            </a>
+                            <ul class="dropdown-menu extended notification">
+                                <div class="notify-arrow notify-arrow-yellow"></div>
+                                <li>
+                                    <p class="yellow">You have __ new notifications</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="top-nav ">
+                    <ul class="nav pull-right top-menu">
+                        <li>
+                            <input type="text" class="form-control search" placeholder="">
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <img alt="" src="img/avatar1_small.jpg">
+                                <span class="username">Hello <b><u><%=c.getFirstName()%></u></b>!</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <div class="log-arrow-up"></div>
+                                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+                                <li><a href="Logout"><i class="fa fa-key"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </header>
+        </section>
+
+        <aside>
+            <div id="sidebar"  class="nav-collapse ">
+                <ul class="sidebar-menu" id="nav-accordion">
+
+                    <li>
+                        <a href="Citizen_Home">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Citizen_SearchTestimonial">
+                            <i class="fa fa-book"></i>
+                            <span>Testimonials</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Citizen_ProjectsImplemented">
+                            <i class="fa fa-book"></i>
+                            <span>Projects Implemented</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="Citizen_NotificationActivity">
+                            <i class="fa fa-book"></i>
+                            <span>Notification and Activity</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <section id="main-content">
+            <section class="wrapper site-min-height">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Create New Image / Video Testimonial
+                    </header>
+                    <br>
+                    <div class="panel-body">
+                        <form action="Citizen_CreateTestimonial" class="form-horizontal tasi-form" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="col-sm-2 col-sm-2 control-label">Title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="testimonialtitle">
+                                    <span class="help-block">Input title of your testimonial.</span>
+                                </div>
+                                <label class="col-sm-2 col-sm-2 control-label">Message</label>
+                                <div class="col-sm-10">
+                                    <textarea class="wysihtml5 form-control" rows="10" name="testimonialdescription"></textarea>
+                                    <span class="help-block">Input Message of your testimonial.</span>
+                                </div>
+
+                                <label class="col-sm-2 col-sm-2 control-label">Location</label>
+                                <div class="col-sm-10">
+
+                                    <select class="form-control regField" name="testimoniallocation">
+                                        <option value="" disabled selected>Select Barangay</option>
+                                        <option value="Almanza Uno">Almanza Uno</option>
+                                        <option value="Daniel Fajardo">Daniel Fajardo</option>
+                                        <option value="Elias Aldana">Elias Aldana</option>
+                                        <option value="Ilaya">Ilaya</option>
+                                        <option value="Manuyo Uno">Manuyo Uno</option>
+                                        <option value="Pamplona Uno">Pamplona Uno</option>
+                                        <option value="Pulang Lupa Uno">Pulang Lupa Uno</option>
+                                        <option value="Talon Uno">Talon Uno</option>
+                                        <option value="Zapote">Zapote</option>
+                                        <option value="Almanza Dos">Almanza Dos</option>
+                                        <option value="B.F. International Village">B.F. International Village</option>
+                                        <option value="Manuyo Dos">Manuyo Dos</option>
+                                        <option value="Palmpona Dos">Pamplona Dos</option>
+                                        <option value="Pamplona Tres">Pamplona Tres</option>
+                                        <option value="Pilar">Pilar</option>
+                                        <option value="Pulang Lupa Dos">Pulang Lupa Dos</option>
+                                        <option value="Talon Dos">Talon Dos</option>
+                                        <option value="Talon Tres">Talon Tres</option>
+                                        <option value="Talon Kuatro">Talon Kuatro</option>
+                                        <option value="Talon Singko">Talon Singko</option>
+                                    </select>
+                                </div>
+
+                                <label class="col-sm-2 col-sm-2 control-label">Location Details</label>
+                                <div class="col-sm-10">
+                                    <textarea class="wysihtml5 form-control" rows="10" name="testimoniallocationdetails"></textarea>
+                                    <span class="help-block">Input location details.</span>
+                                </div>
+
+
+
+                                <header class="panel-heading">
+                                    Upload Files
+                                </header>
+
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Video</label>
+                                        <div class="col-md-4">
+                                            <input name="Videos" type="file" class="default" multiple/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Image</label>
+                                        <div class="col-md-4">
+                                            <input name="Images" type="file" class="default" multiple/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Add Documents</label>
+                                        <div class="col-md-4">
+                                            <input name="Documents" type="file" class="default" multiple/>
+                                        </div>
+                                    </div>
+                                    <center>
+                                        <button type="submit" class="btn btn-success">Create</button>
+                                        <button type="button" class="btn btn-danger">Cancel</button>
+                                    </center>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <footer class="site-footer">
+            <div class="text-center">
+                2016 &copy; KAYA
+                <a href="#" class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+        <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+        <script type="text/javascript" src="js/jquery.pulsate.min.js"></script>
+        <script src="js/slidebars.min.js"></script>
+
+    </body>
+</html>
